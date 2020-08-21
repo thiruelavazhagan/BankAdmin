@@ -1,10 +1,10 @@
-package banklogic.spirngmvc.service;
+package banklogic.springmvc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import banklogic.spirngmvc.dao.UserDao;
-import banklogic.spirngmvc.model.Login;
-import banklogic.spirngmvc.model.User;
+import banklogic.springmvc.dao.UserDao;
+import banklogic.springmvc.model.Login;
+import banklogic.springmvc.model.User;
 
 
 public class UserServiceImpl implements UserService {

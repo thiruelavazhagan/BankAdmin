@@ -1,6 +1,10 @@
-<%@ taglib prefix="form" uri="http://www.springsource.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +15,12 @@
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- Custom Theme files -->
-<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="css/style.css" type="text/css" rel="stylesheet" media="all">
-<link href="css/font-awesome.css" rel="stylesheet">   <!-- font-awesome icons --> 
+<link href="resources/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="resources/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="resources/css/font-awesome.css" rel="stylesheet">   <!-- font-awesome icons --> 
 <!-- //Custom Theme files -->  
 <!-- js --> 
-	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="resources/js/jquery-2.2.3.min.js"></script>
 <!-- web-fonts -->
 <!-- //web-fonts --> 
 </head>
@@ -26,7 +30,7 @@
 		<div class="header-w3mdl"><!-- header-two --> 
 			<div class="container"> 
 				<div class="agileits-logo navbar-left">
-					<h1><a href="index.html"><img src="images/e.png" alt="logo"/>Banking</a></h1> 
+					<h1><a href="index.html"><img src="resources/images/e.png" alt="logo"/>Banking</a></h1> 
 				</div> 
 				<div class="agileits-hdright nav navbar-nav">
 					<div class="header-w3top"><!-- header-top --> 
@@ -171,7 +175,7 @@
 			<div class="w3ls-about agile-section">
 					<div class="w3-agileits-about-grids">
 						<div class="col-md-6 col-sm-6 col-xs-6 agileits-title">
-							<h3>what makes <img src="images/logo.png" alt="logo"/>Unique?</h3> 
+							<h3>what makes <img src="resources/images/logo.png" alt="logo"/>Unique?</h3> 
 						</div>
 						<div class="col-md-6 col-sm-6 col-xs-6  agile-about-bottom-right">
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget faucibus est.Suspendisse auctor urna blandit ultricies maximus.
@@ -362,7 +366,7 @@
 					<div class="w3_agile_testimonials_grid">
 						<div class="w3_agile_testimonials_grid_left">
 							<div class="col-md-3 col-sm-3 col-xs-3 w3l-testi-img">
-								<img src="images/13.jpg" alt=" " class="img-responsive"/>
+								<img src="resources/images/13.jpg" alt=" " class="img-responsive"/>
 							</div>	
 							<div class="col-md-9 col-sm-9 col-xs-9 w3l-testi-txt">
 								<h4>Tyson</h4>
@@ -384,7 +388,7 @@
 					<div class="w3_agile_testimonials_grid">
 						<div class="w3_agile_testimonials_grid_left">
 							<div class="col-md-3 col-sm-3 col-xs-3 w3l-testi-img">
-								<img src="images/10.jpg" alt=" " class="img-responsive"/>
+								<img src="resources/images/10.jpg" alt=" " class="img-responsive"/>
 							</div>	
 							<div class="col-md-9 col-sm-9 col-xs-9 w3l-testi-txt">
 								<h4>Alejandra</h4>
@@ -405,7 +409,7 @@
 					<div class="w3_agile_testimonials_grid">
 						<div class="w3_agile_testimonials_grid_left">
 							<div class="col-md-3 col-sm-3 col-xs-3 w3l-testi-img">
-								<img src="images/11.jpg" alt=" " class="img-responsive"/>
+								<img src="resources/images/11.jpg" alt=" " class="img-responsive"/>
 							</div>	
 							<div class="col-md-9 col-sm-9 col-xs-9 w3l-testi-txt">
 								<h4>Charles</h4>
@@ -426,7 +430,7 @@
 					<div class="w3_agile_testimonials_grid">
 						<div class="w3_agile_testimonials_grid_left">
 							<div class="col-md-3 col-sm-3 col-xs-3 w3l-testi-img">
-								<img src="images/12.jpg" alt=" " class="img-responsive" />
+								<img src="resources/images/12.jpg" alt=" " class="img-responsive" />
 							</div>
 							<div class="col-md-9 col-sm-9 col-xs-9 w3l-testi-txt">
 								<h4>Jessie</h4>
@@ -475,10 +479,10 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<img src="images/logo.png" alt="logo"/>
+					<img src="resources/images/logo.png" alt="logo"/>
 				</div>
 				<div class="modal-body">
-					<img src="images/modal.jpg" class="img-responsive" alt="image">
+					<img src="resources/images/modal.jpg" class="img-responsive" alt="image">
 					<p>Fusce et congue nibh, ut ullamcorper magna. Donec ac massa tincidunt, fringilla sapien vel, tempus massa. Vestibulum felis leo, tincidunt sit amet tristique accumsan. In vitae dapibus metus. Donec nec massa non nulla mattis aliquam egestas et mi.</p>
 				</div>
 			</div>
@@ -491,7 +495,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<img src="images/logo.png" alt="logo"/>
+					<img src="resources/images/logo.png" alt="logo"/>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
 				</div> 
 				<div class="modal-body modal-spa">
@@ -511,7 +515,7 @@
 		<!-- //banner-text -->  
 	<!-- //banner -->
 	<!-- banner Slider starts Here -->
-	<script src="js/responsiveslides.min.js"></script>
+	<script src="resources/js/responsiveslides.min.js"></script>
 	<script>
 		// You can also use "$(window).load(function() {"
 		$(function () {
@@ -532,10 +536,10 @@
 	
 		});
 	</script>
-	<script src="js/SmoothScroll.min.js"></script>
+	<script src="resources/js/SmoothScroll.min.js"></script>
 	<!-- smooth-scrolling-of-move-up -->
-	<script type="text/javascript" src="js/move-top.js"></script>
-	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript" src="resources/js/move-top.js"></script>
+	<script type="text/javascript" src="resources/js/easing.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			/*
@@ -556,7 +560,7 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.js"></script>
+    <script src="resources/js/bootstrap.js"></script>
 
 </body>
 </html>

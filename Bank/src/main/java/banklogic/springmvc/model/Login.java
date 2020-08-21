@@ -1,4 +1,4 @@
-package banklogic.spirngmvc.model;
+package banklogic.springmvc.model;
 
 public class Login {
 

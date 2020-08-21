@@ -1,4 +1,4 @@
-package banklogic.spirngmvc.dao;
+package banklogic.springmvc.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import banklogic.spirngmvc.model.Login;
-import banklogic.spirngmvc.model.User;
+import banklogic.springmvc.model.Login;
+import banklogic.springmvc.model.User;
 
 public class UserDaoImpl implements UserDao {
 
