@@ -14,38 +14,32 @@ import banklogic.springmvc.model.Login;
 import banklogic.springmvc.model.User;
 import banklogic.springmvc.service.UserService;
 
-
-
 @Controller
 public class LoginController {
 
-  @Autowired
-  UserService userService;
+	@Autowired
+	UserService userService;
 
-  @RequestMapping(value = "/login", method = RequestMethod.GET)
-  public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
-    ModelAndView mav = new ModelAndView("login");
-    mav.addObject("login", new Login());
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView("login");
+		mav.addObject("login", new Login());
 
-    return mav;
-  }
+		return mav;
+	}
 
-  @RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
-  public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
-      @ModelAttribute("login") Login login) {
-    ModelAndView mav = null;
+	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
+	public ModelAndView processLogin(@ModelAttribute("login") Login login) {
 
-    User user = userService.validateUser(login);
+		String userName = login.getUsername();
+		String password = login.getPassword();
+		if ("admin".equalsIgnoreCase(userName) && "admin".equalsIgnoreCase(password)) {
+			ModelAndView mv = new ModelAndView("welcome");
+			return mv;
+		} else {
+			ModelAndView mv = new ModelAndView("login");
+			return mv;
+		}
 
-    if (null != user) {
-      mav = new ModelAndView("welcome");
-      mav.addObject("firstname", user.getFirstname());
-    } else {
-      mav = new ModelAndView("login");
-      mav.addObject("message", "Username or Password is wrong!!");
-    }
-
-    return mav;
-  }
-
+	}
 }

@@ -1,7 +1,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-
+<%@page import="java.sql.*"%>
+<%@ page isELIgnored="false"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
 
@@ -17,20 +18,8 @@
 <script type="application/x-javascript">
 	
 	
-	
-	
-	
-	
-	
-	
-	
+
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
-
 
 
 
@@ -52,6 +41,7 @@
 <!-- web-fonts -->
 <!-- //web-fonts -->
 <style>
+/*custom font*/
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 /*basic reset*/
@@ -190,7 +180,7 @@ body {
 }
 </style>
 </head>
-<body>
+<body style="background-color: #aceafc">
 	<!-- header -->
 	<div class="headerw3-agile">
 		<div class="header-w3mdl">
@@ -217,13 +207,10 @@ body {
 							<div class="collapse navbar-collapse"
 								id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
-									<li><a href="index.jsp" class="active">Home</a></li>
-									<li><a href="#" onclick="alert('Login to Add New User!');"
-										class="scroll">New User</a></li>
-									<li><a href="#" onclick="alert('Login to View History!');"
-										class="scroll">History</a></li>
-									<li><a href="#" onclick="alert('Login to Contact!');"
-										class="scroll">Contact Us</a></li>
+									<li><a href="index.jsp" class="scroll">Home</a></li>
+									<li><a href="register" class="scroll">New User</a></li>
+									<li><a href="addamount" class="active">Add Amount</a></li>
+									<li><a href="#" class="scroll">Contact Us</a></li>
 
 								</ul>
 								<div class="clearfix"></div>
@@ -237,46 +224,37 @@ body {
 	</div>
 	<!-- //header -->
 	<!-- banner -->
-	<div class="banner">
+	<!-- multistep form -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<form:form id="msform" modelattribute="add" action="addamountprocess"
+		method="post">
 
-		<!-- banner-text -->
-		<!-- banner -->
-		<div class="container">
-			<div class="banner-text agileits-w3layouts">
-				<div id="top" class="callbacks_container">
-					<ul class="rslides" id="slider3">
-						<li>
-							<div class="banner-textagileinfo">
-								<h6>Welcome To E-Banking</h6>
+		<!-- fieldsets -->
+		<fieldset>
+			<h2 class="fs-title">Payment Process</h2>
+			<form:input path="accno" name="accno" id="accno"
+				placeholder="Account Number" style="width:100%" required="required" />
+			<form:input path="pinpass" name="pinpass" id="pinpass"
+				placeholder="4-Digit Pin" style="width:100%" required="required"
+				readonly="true" />
+			<form:input path="otp" name="otp" id="otp"
+				placeholder="One Time Password..." style="width:100%" required="required" />
 
-								<form:form id="msform" name="loginForm" modelAttribute="login"
-									action="loginProcess" method="post"
-									onsubmit="return adminformfunc()">
+			<form:button id="register" class="action-button" name="register">Debit</form:button>
 
-									<fieldset>
-										<h2 class="fs-title">Admin Login</h2>
-										<form:input path="username" name="username" id="username"
-											placeholder="Admin Email" style="width:100%"
-											required="required" />
-										<form:password path="password" name="password" id="password"
-											placeholder="Password" style="width:100%" required="required" />
+		</fieldset>
+	</form:form>
 
-										<form:button id="login" class="action-button" name="register">Login</form:button>
+	<div class="clearfix"></div>
 
-									</fieldset>
-								</form:form>
-
-							</div>
-
-							<div class="clearfix"></div>
-				</div>
-			</div>
-		</div>
-
-
-	</div>
 	<!-- about -->
-
+	<br>
+	<br>
+	<br>
+	<br>
 
 	<div class="w3_agile-copyright text-center">
 		<p>© 2020 E-Banking. All rights reserved | Design by
@@ -327,61 +305,6 @@ body {
 		});
 	</script>
 
-	<script>
-		$('.form').find('input, textarea').on('keyup blur focus', function(e) {
-
-			var $this = $(this), label = $this.prev('label');
-
-			if (e.type === 'keyup') {
-				if ($this.val() === '') {
-					label.removeClass('active highlight');
-				} else {
-					label.addClass('active highlight');
-				}
-			} else if (e.type === 'blur') {
-				if ($this.val() === '') {
-					label.removeClass('active highlight');
-				} else {
-					label.removeClass('highlight');
-				}
-			} else if (e.type === 'focus') {
-
-				if ($this.val() === '') {
-					label.removeClass('highlight');
-				} else if ($this.val() !== '') {
-					label.addClass('highlight');
-				}
-			}
-
-		});
-
-		$('.tab a').on('click', function(e) {
-
-			e.preventDefault();
-
-			$(this).parent().addClass('active');
-			$(this).parent().siblings().removeClass('active');
-
-			target = $(this).attr('href');
-
-			$('.tab-content > div').not(target).hide();
-
-			$(target).fadeIn(600);
-
-		});
-	</script>
-	<script>
-		function adminformfunc() {
-			var email = document.loginForm.adminemail.value;
-			var pass = document.loginForm.adminpass.value;
-
-			if (email == "" || pass == "") {
-				$("#errorreportlab").fadeIn(600);
-				document.getElementById('errorreportlab').innerHTML = "Fields should not be empty.";
-				return false;
-			}
-		}
-	</script>
 	<script>
 		//jQuery time
 		var current_fs, next_fs, previous_fs; //fieldsets
@@ -483,6 +406,7 @@ body {
 			return false;
 		})
 	</script>
+
 	<!-- //smooth-scrolling-of-move-up -->
 
 	<!-- Bootstrap core JavaScript

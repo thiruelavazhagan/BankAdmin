@@ -9,21 +9,23 @@
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
 	http://www.springframework.org/schema/context  
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	<import resource="classpath:banklogic/config/user-beans.xml" />
+	<import resource="classpath:banklogic/config/user-beans.xml"/>
 	<context:component-scan
 		base-package="banklogic.springmvc" />
 	<context:annotation-config />
+	<mvc:annotation-driven/>
 	 <mvc:resources mapping="/resources/**" location="/resources/"/>
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.JstlView"></property>
 		<property name="prefix">
-			<value>/WEB-INF/jsp/</value>
+			<value>/jsp/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
 		</property>
-
+	
 	</bean>
+	
 </beans>
