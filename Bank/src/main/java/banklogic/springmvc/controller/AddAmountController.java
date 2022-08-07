@@ -29,7 +29,7 @@ import banklogic.springmvc.service.UserService;
 public class AddAmountController {
 	
 	 @Autowired
-	public UserService userService1;
+	public UserService userService2;
 	 public HashMap<String, String> map;
 	 @RequestMapping(value = "/addamount", method = RequestMethod.GET)
 	  public ModelAndView user() {
